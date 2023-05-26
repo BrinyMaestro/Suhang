@@ -43,7 +43,7 @@ body {background-color: #BA9D7B;}
 .champinfo div {margin-left: 5px; margin-right: 5px; display: flex; align-items: center;}
 .champ-level {width:230px; display: flex; align-items: center; justify-content: space-between;}
 .multi-kill {background-color: rgb(250, 166, 166); border-radius: 5px;}
-.kda {width: 200px; display: flex; justify-content: space-evenly; padding-left:10px; padding-right: 10px; font-size: 15pt; background-color: rgb(156, 156, 156);}
+.kda {width: 200px; display: flex;justify-content: center; padding-left:10px; padding-right: 10px; font-size: 15pt; background-color: rgb(156, 156, 156); text-align: center;}
 .GAME {height: 100px; width: 1960px; display: flex; justify-content: center;}
 .USER1 {border-bottom: 1px solid rgb(184, 167, 148);}
 .ITEM {background-color: rgb(156, 156, 156);}

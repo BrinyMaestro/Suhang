@@ -20,7 +20,7 @@
     
         <section class="profile1">
             <div class="profile2">
-                <div class="img"><img src="https://opgg-static.akamaized.net/meta/images/profile_icons/profileIcon5766.jpg?image=q_auto,f_webp,w_auto&v=1684436046850" width="100px" alt="가붕이미지"></div>
+                <div class="img"><img src="https://opgg-static.akamaized.net/meta/images/profile_icons/profileIcon5766.jpg?image=q_auto,f_webp,w_auto&v=1684436046850" style="border-radius: 10px;" width="100px" alt="가붕이미지"></div>
                 <div class="name">
                     <h2>가붕가붕가붕가붕</h2>
                     <h2>Level <span class="level"> 00</span></h2>
@@ -199,11 +199,18 @@
                     자식.innerHTML = `<div class="win-lose"><span>다시하기</span></div>`
                 }
 
+                let kdaScore
+                kdaScore = (( 게임.data.info.participants[내번호].kills + 게임.data.info.participants[내번호].assists ) / 게임.data.info.participants[내번호].deaths).toFixed(1)
+                kdaScore = "KDA : " + kdaScore
+                if (게임.data.info.participants[내번호].deaths == 0 && 게임.data.info.participants[내번호].kills > 0) {
+                    kdaScore = "Perfect"
+                }
+
                 자식.innerHTML = 자식.innerHTML +
                 `
                     <div class="game-type"><span>${게임.data.info.gameMode}</span></div>
                     <div class="champinfo"><div class="champion1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[내번호].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="48px" alt="챔피언"></div> <div class="champ-level"><span style="font-size:15pt;">Lv . ${게임.data.info.participants[내번호].champLevel}</span> <span class="multi-kill">${멀티킬}</span> <span class="rune"> <img src="https://opgg-static.akamaized.net/meta/images/lol/perk/${게임.data.info.participants[내번호].perks.styles[0].selections[0].perk}.png?image=q_auto,f_webp,w_auto&v=1684731456578" width="40px" alt="룬1"> <img src="https://opgg-static.akamaized.net/meta/images/lol/perkStyle/${게임.data.info.participants[내번호].perks.styles[1].style}.png?image=q_auto,f_webp,w_auto&v=1684731456578" width="30px" alt="룬2"></span></div></div>
-                    <div class="kda"><span class="game-kill">${게임.data.info.participants[내번호].kills}</span> <span> / </span> <span class="game-death">${게임.data.info.participants[내번호].deaths}</span> <span> / </span> <span class="game-assist">${게임.data.info.participants[내번호].assists}</span> <span> / </span> <span class="cs">CS - ${게임.data.info.participants[내번호].totalMinionsKilled}</span></div>
+                    <div class="kda"><div><span class="game-kill">${게임.data.info.participants[내번호].kills}</span> <span> / </span> <span class="game-death">${게임.data.info.participants[내번호].deaths}</span> <span> / </span> <span class="game-assist">${게임.data.info.participants[내번호].assists}</span> <span> / </span> <span class="cs">CS - ${게임.data.info.participants[내번호].totalMinionsKilled}</span> <br> <span>${kdaScore}</span></div></div>
                 `
                 let 아이템칸 
                 아이템칸 = document.createElement("div")
