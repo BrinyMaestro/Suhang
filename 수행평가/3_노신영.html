@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3_노신영</title>
+
+    <style>
+        div {
+            border: 1px solid rgb(209, 209, 209);
+            border-radius: 10px;
+            padding: 20px;
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            padding-bottom: 40px;
+        }
+
+        input {
+            border: none;
+            border-bottom: 1.5px solid rgb(173, 173, 173);
+            line-height: 30px;
+        }
+
+        h1 {
+            color: rgb(34, 141, 18);
+        }
+
+        h4 {
+            line-height: 20px;
+            margin-bottom: 10px;
+        }
+
+        select {
+            border: none;
+            margin-right: 30px;
+            padding: 5px;
+            width: 60px;
+        }
+
+        .select {
+            margin-bottom: 18px;
+        }
+
+        #textarea {
+            width: 100%; height: 150px;
+            padding: 0;
+        }
+
+        .checkbox {
+            margin-right: 10px;
+        }
+
+        .last {
+            margin-right: 10px;
+        }
+
+        footer {
+            text-align: center;
+        }
+
+        button {
+            margin: 20px;
+            width: 180px;
+            height: 38px;
+            border: none;
+            border-radius: 10px;
+            background-color: rgb(36, 122, 49);
+            color: white;
+            font-size: 15pt;
+            padding-top: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+        button:active {
+            background-color: rgb(1, 75, 1);
+        }
+
+        .first {
+            color: rgb(187, 187, 187);
+            font-size: 10pt;
+        }
+
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        p, h1, h4{
+            cursor: default;
+        }
+
+        * {font-family: 'Sunflower', sans-serif;}
+
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+    <form action="">
+        <div class="box1">
+            <h1>| 자신의 프로필을 설정해주세요</h1>
+            
+            <p class="first">각각의 항목에 정보를 입력해주세요</p>
+            <hr>
+    
+            <label for=""><h4>성명</h4> <input type="text" placeholder="성명 입력"></label>
+            <label for=""><h4>주소</h4> <input type="text" placeholder="주소 입력"></label>
+            <label for=""><h4>연락처</h4> <input type="number" placeholder="연락처 입력"></label>
+            
+            <h4>생년월일</h4>
+    
+            <select name="연도" id="">
+                <option value="">연도</option>
+                <option value="">2000</option>
+                <option value="">2001</option>
+                <option value="">2002</option>
+            </select>
+            
+            <select name="월" id="">
+                <option value="">월</option>
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+                <option value="">5</option>
+                <option value="">6</option>
+                <option value="">7</option>
+                <option value="">8</option>
+                <option value="">9</option>
+                <option value="">10</option>
+                <option value="">11</option>
+                <option value="">12</option>
+            </select>
+    
+            <label for=""><input type="number" style="width: 70px;"></label>
+            <span>일</span>
+    
+            <h4>성별</h4>
+            
+            <label for="" style="margin-right: 20px;"><input type="radio" name="gender">남</label>
+            <label for=""><input type="radio" name="gender">여</label>
+            
+            <label for=""><h4>이메일</h4> <input type="text" placeholder="이메일 입력"></label>
+        </div>
+    
+        <div class="box2">
+            <h1>| 자신을 소개해 주세요</h1>
+            
+            <p class="first">아래의 물음에 답하세요</p>
+            <hr>
+            
+            <h4>가장 마음에 드는 문구를 고르세요</h4>
+            <label for=""><input type="radio" name="select" class="select"> 어렵게 생각하지 말고 끝까지 하면 된다. 희망을 가지고 간절하게 하면 된다.</label>
+            <br>
+            <label for=""><input type="radio" name="select" class="select"> 신념을 가지면 어떤 어려움에도 흔들리지 않는다.</label>
+            <br>
+            <label for=""><input type="radio" name="select" class="select"> "시계처럼 살아라." - 이는 시계처럼 꾸준히 가라는 것이다. 시계처럼 시간도 지켜라.</label>
+            <br>
+            <label for=""><input type="radio" name="select" class="select"> 인생도 건너뛰기가 없고 순간 나는 비약도 없다.</label>
+            
+            <h4>위 문구를 선택한 이유를 쓰세요</h4>
+            <textarea name="" id="textarea" placeholder="500자 이내"></textarea>
+    
+            <h4>자신의 진로 분야를 선택하세요</h4>
+            <label for="" class="checkbox"><input type="checkbox">프론트엔드</label>
+            <label for="" class="checkbox"><input type="checkbox">보안</label>
+            <label for="" class="checkbox"><input type="checkbox">백엔드</label>
+            <label for="" class="checkbox"><input type="checkbox">인공지능</label>
+            <label for="" class="checkbox"><input type="checkbox">해커</label>
+            <label for="" class="checkbox"><input type="checkbox">기타</label>
+    
+            <h4>개발자가 되기 위한 자신의 공부 우선 순위</h4>
+            <label for="" class="last">1.<input type="text"></label>
+            <label for="" class="last">2.<input type="text"></label>
+            <label for="" class="last">3.<input type="text"></label>
+        </div>
+        
+        <footer>
+            <button type="submit">제출</button>
+            <button type="reset">초기화</button>
+        </footer>
+    </form>
+
+</body>
+</html>
