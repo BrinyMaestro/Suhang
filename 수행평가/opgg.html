@@ -30,12 +30,15 @@
                     <img src="" alt="">  
                 </div>
                 <div class="per">
-                    <p>승률 <span class="percent">_</span>% (<span class="win">_</span>승 <span class="lose">_</span>패)</p>
+                    <p>승률 <span class="Rpercent">_</span>% (<span class="Rwin">_</span>승 <span class="Rlose">_</span>패)</p>
                 </div>
             </div>
         </section>
 
         <br>
+        <div class="per20">
+            <p>최근게임 승률 <span class="percent">_</span>% --- [ <span class="win"> _ </span>승 <span class="lose"> _ </span>패 ]</p>
+        </div>
 
         <div class="advbar">
             <div style="width: 50px;"><p>승 / 패</p></div>
@@ -68,7 +71,7 @@
         const 인풋태그 = document.querySelector("#user")
         const 검색버튼 = document.querySelector("button")
         const 티어 = document.querySelector(".tier h2")
-        const 승률 = document.querySelector(".per .percent")
+        const 승률 = document.querySelector(".percent")
         const 승 = document.querySelector(".win")
         const 패 = document.querySelector(".lose")
         const 티어이미지 = document.querySelector(".tier img")
@@ -190,7 +193,8 @@
                 else {
                     멀티킬 = ""
                 }
-
+                
+                // 승패
                 let 자식
                 자식 = document.createElement("div")
                 자식.classList.add("game")
@@ -207,7 +211,8 @@
                 else {
                     자식.innerHTML = `<div class="win-lose"><span>다시하기</span></div>`
                 }
-
+                
+                // 게임 정보
                 let kdaScore
                 kdaScore = (( 게임.data.info.participants[내번호].kills + 게임.data.info.participants[내번호].assists ) / 게임.data.info.participants[내번호].deaths).toFixed(1)
                 kdaScore = "KDA : " + kdaScore

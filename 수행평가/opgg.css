@@ -32,7 +32,7 @@ body {background-color: #BA9D7B;}
 .logo p {margin-left: 30px;} 
 .logo p span {font-size: 100pt; font-family: 'Dokdo', cursive; }
 .advbar {display: flex; margin-bottom: 10px; border-radius: 10px; height: 30px; margin-left: 24px;}
-.advbar > div {background-color: azure; border-right:1px solid rgb(150, 150, 150) ; text-align: center; display:flex; justify-content:space-around; align-items: center; font-size: 10pt;}
+.advbar > div {background-color: rgb(190, 232, 232); border-right:1px solid rgb(150, 150, 150) ; text-align: center; display:flex; justify-content:space-around; align-items: center; font-size: 10pt;}
 .win-lose, .win_, .lose_ {width: 50px; height: 100px; display: flex; justify-content: space-around; font-size: 20pt;}
 .win_ {background-color: rgb(144, 165, 255);}
 .lose_ {background-color: rgb(255, 139, 139);}
@@ -47,3 +47,4 @@ body {background-color: #BA9D7B;}
 .GAME {height: 100px; width: 1960px; display: flex; justify-content: center;}
 .USER1 {border-bottom: 1px solid rgb(184, 167, 148);}
 .ITEM {background-color: rgb(156, 156, 156);}
+.per20{background-color: rgb(140, 183, 169); width: 280px; height: 30px; margin-left: 24px; display: flex; justify-content: center; align-items: center;}
