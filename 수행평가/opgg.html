@@ -17,23 +17,67 @@
     <div class="logo"><img src="https://cdn.iconscout.com/icon/free/png-256/free-dog-229-450767.png?f=webp&w=256" width="150px" alt="logo"> <p><span style="color: #434343;">DO</span><span style="color: black;">.</span><span style="color: #6A4A4A;">GG</span></p></div>
     <div class="head"><label for=""><input type="text" id="user" autocomplete="off" placeholder="소환사명" value="컵라면3분뉴스"></label> <button class="search">SEARCH</button></div>
     <div id="container">
-    
-        <section class="profile1">
-            <div class="profile2">
-                <div class="img"><img src="" style="border-radius: 10px;" width="100px" alt=""></div>
-                <div class="name">
-                    <h2></h2>
-                    <h2>Level <span class="level"> </span></h2>
-                </div>
-                <div class="tier">
-                    <h2></h2>
-                    <img src="" alt="">  
-                </div>
-                <div class="per">
-                    <p>승률 <span class="Rpercent">_</span>% (<span class="Rwin">_</span>승 <span class="Rlose">_</span>패)</p>
+        
+        <div class="header">
+            <div class="position">
+                <p>최근 포지션</p>
+                <div>
+                    <div>
+                        <img src="https://s-lol-web.op.gg/images/icon/icon-position-top.svg?v=1684919904860" width="50px" alt="탑">
+                        <br>
+                        <span class="top-count">_</span>
+                    </div>
+                    <div>
+                        <img src="https://s-lol-web.op.gg/images/icon/icon-position-jungle.svg?v=1684919904860" width="50px" alt="정글">
+                        <br>
+                        <span class="jungle-count">_</span>
+                    </div>
+                    <div>
+                        <img src="https://s-lol-web.op.gg/images/icon/icon-position-mid.svg?v=1684919904860" width="50px" alt="미드">
+                        <br>
+                        <span class="mid-count">_</span>
+                    </div>
+                    <div>
+                        <img src="https://s-lol-web.op.gg/images/icon/icon-position-adc.svg?v=1684919904860" width="50px" alt="원딜">
+                        <br>
+                        <span class="bot-count">_</span>
+                    </div>
+                    <div>
+                        <img src="https://s-lol-web.op.gg/images/icon/icon-position-support.svg?v=1684919904860" width="50px" alt="서폿">
+                        <br>
+                        <span class="sup-count">_</span>
+                    </div>
+                    <div>
+                        <img src="https://s-lol-web.op.gg/assets/images/roles/01-icon-01-lol-icon-position-all.svg?v=1684919904860" width="50px" alt="NONE">
+                        <br>
+                        <span class="else-count">_</span>
+                    </div>
                 </div>
             </div>
-        </section>
+
+            <div class="profile1">
+                <div class="profile2">
+                    <div class="img"><img src="" style="border-radius: 10px;" width="100px" alt=""></div>
+                    <div class="name">
+                        <h2></h2>
+                        <h2>Level <span class="level"> </span></h2>
+                    </div>
+                    <div class="tier">
+                        <h2></h2>
+                        <img src="" alt="">  
+                    </div>
+                    <div class="per">
+                        <div><p>승률 <span class="Rpercent">_</span>% (<span class="Rwin">_</span>승 <span class="Rlose">_</span>패)</p></div>
+                        <div><p>K: <span class="K">_</span> D: <span class="D">_</span> A: <span class="A">_</span></p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="played-champ">
+                <p>최근 플레이한 챔피언</p>
+                
+            </div>
+        </div>
 
         <br>
         <div class="per20">
@@ -64,7 +108,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         // summoner api로 유저 데이터를 가져오는 부분
-        const api키 = "RGAPI-fe17e86f-10a9-4d7d-9906-fe6d410780b8"
+        const api키 = "RGAPI-67a10de0-a18b-4b80-8106-c563949e5d86"
         let 검색할유저
         let 소환사puuid
         let 소환사id
@@ -74,11 +118,27 @@
         const 승률 = document.querySelector(".percent")
         const 승 = document.querySelector(".win")
         const 패 = document.querySelector(".lose")
+        const 랭승 = document.querySelector(".Rwin")
+        const 랭패 = document.querySelector(".Rlose")
+        const 랭승률 = document.querySelector(".Rpercent")
         const 티어이미지 = document.querySelector(".tier img")
+
+        let 탑수 = document.querySelector(".top-count")
+        let 미드수 = document.querySelector(".mid-count")
+        let 정글수 = document.querySelector(".jungle-count")
+        let 원딜수 = document.querySelector(".bot-count")
+        let 서폿수 = document.querySelector(".sup-count")
+        let 그외수 = document.querySelector(".else-count")
         
 
         let WIN = 0
         let LOSE = 0
+        let 탑 = 0
+        let 정글 = 0
+        let 미드 = 0
+        let 원딜 = 0
+        let 서폿 = 0
+        let 그외 = 0
 
         let summonerAPI
         let leagueAPI
@@ -89,6 +149,12 @@
             검색할유저 = 인풋태그.value // input 태그에 들어있는 value를 가져오기
             WIN = 0
             LOSE = 0
+            탑 = 0
+            정글 = 0
+            미드 = 0
+            원딜 = 0
+            서폿 = 0
+            그외 = 0
         
            // summonerAPI 를 호출하는 부분
            await 소환사API()
@@ -128,11 +194,35 @@
             console.log("리그API 호출")
             console.log(response)
             
-            티어.textContent = response.data[0].tier + " " + response.data[0].rank
             승률.textContent = ((WIN / (WIN + LOSE))*100).toFixed(2)
             승.textContent = WIN
             패.textContent = LOSE
-            티어이미지.setAttribute("src", `https://opgg-static.akamaized.net/images/medals_new/${response.data[0].tier}.png?image=q_auto,f_webp,w_144&v=1684436046850`)
+
+            탑수.textContent = 탑
+            미드수.textContent = 미드
+            정글수.textContent = 정글
+            원딜수.textContent = 원딜
+            서폿수.textContent = 서폿
+            그외수.textContent = 그외
+
+            티어.textContent = "Unranked"
+            티어이미지.setAttribute("src", `https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-0.png`)
+            랭승률.textContent = "0"
+            랭승.textContent = "0"
+            랭패.textContent = "0"
+            
+            for (let i = 0 ; i <= 4 ; i = i + 1) {
+                if (response.data[i].queueType == "RANKED_SOLO_5x5") {
+                    티어.textContent = response.data[i].tier + " " + response.data[i].rank
+                    티어이미지.setAttribute("src", `https://opgg-static.akamaized.net/images/medals_new/${response.data[i].tier}.png?image=q_auto,f_webp,w_144&v=1684436046850`)
+                    랭승률.textContent = ((response.data[i].wins / (response.data[i].wins + response.data[i].losses))*100).toFixed(2)
+                    랭승.textContent = response.data[i].wins
+                    랭패.textContent = response.data[i].losses
+                } 
+                else {
+                    continue
+                }               
+            }
         }
 
         async function 게임20개 () {
@@ -193,6 +283,28 @@
                 else {
                     멀티킬 = ""
                 }
+
+                // 포지션
+
+                if (게임.data.info.participants[내번호].individualPosition == "MIDDLE") {
+                    미드 = 미드 + 1
+                }
+                else if (게임.data.info.participants[내번호].individualPosition == "BOTTOM") {
+                    원딜 = 원딜 + 1
+                }
+                else if (게임.data.info.participants[내번호].individualPosition == "TOP") {
+                    탑 = 탑 + 1
+                }
+                else if (게임.data.info.participants[내번호].individualPosition == "JUNGLE") {
+                    정글 = 정글 + 1
+                }
+                else if (게임.data.info.participants[내번호].individualPosition == "UTILITY") {
+                    서폿 = 서폿 + 1
+                }
+                else {
+                    그외 = 그외 + 1
+                }
+                
                 
                 // 승패
                 let 자식
@@ -204,12 +316,12 @@
                     자식.innerHTML = `<div class="win_"><span>승</span></div>`
                     WIN = WIN + 1
                 }
-                else if (게임.data.info.participants[내번호].win == false ) {
+                else if (게임.data.info.participants[내번호].win == false && 게임.data.info.participants[내번호].champLevel >= 3) {
                     자식.innerHTML = `<div class="lose_"><span>패</span></div>`
                     LOSE = LOSE + 1
                 }
-                else {
-                    자식.innerHTML = `<div class="win-lose"><span>다시하기</span></div>`
+                else if (게임.data.info.participants[내번호].champLevel < 3 ) {
+                    자식.innerHTML = `<div class="win-lose"><span>X</span></div>`
                 }
                 
                 // 게임 정보
@@ -217,7 +329,7 @@
                 kdaScore = (( 게임.data.info.participants[내번호].kills + 게임.data.info.participants[내번호].assists ) / 게임.data.info.participants[내번호].deaths).toFixed(1)
                 kdaScore = "KDA : " + kdaScore
                 if (게임.data.info.participants[내번호].deaths == 0 && 게임.data.info.participants[내번호].kills > 0) {
-                    kdaScore = "Perfect"
+                    kdaScore = `<span style="color:red;">Perfect</span>`
                 }
 
                 자식.innerHTML = 자식.innerHTML +
@@ -303,6 +415,7 @@
                 게임20개넣을곳.innerHTML = 게임20개넣을곳.innerHTML + "<br>"
         
             }
+            
 
             
 
