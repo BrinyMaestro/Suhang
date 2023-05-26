@@ -20,17 +20,17 @@
     
         <section class="profile1">
             <div class="profile2">
-                <div class="img"><img src="https://opgg-static.akamaized.net/meta/images/profile_icons/profileIcon5766.jpg?image=q_auto,f_webp,w_auto&v=1684436046850" style="border-radius: 10px;" width="100px" alt="가붕이미지"></div>
+                <div class="img"><img src="" style="border-radius: 10px;" width="100px" alt=""></div>
                 <div class="name">
-                    <h2>가붕가붕가붕가붕</h2>
-                    <h2>Level <span class="level"> 00</span></h2>
+                    <h2></h2>
+                    <h2>Level <span class="level"> </span></h2>
                 </div>
                 <div class="tier">
-                    <h2>챌</h2>
-                    <img src="https://support-leagueoflegends.riotgames.com/hc/article_attachments/4415894930323/Challenger_Emblem_2022.png" alt="">  
+                    <h2></h2>
+                    <img src="" alt="">  
                 </div>
                 <div class="per">
-                    <p>승률 <span class="percent">99</span>% (<span class="win">ㅇ</span>승 <span class="lose">ㅇ</span>패)</p>
+                    <p>승률 <span class="percent">_</span>% (<span class="win">_</span>승 <span class="lose">_</span>패)</p>
                 </div>
             </div>
         </section>
@@ -72,6 +72,10 @@
         const 승 = document.querySelector(".win")
         const 패 = document.querySelector(".lose")
         const 티어이미지 = document.querySelector(".tier img")
+        
+
+        let WIN = 0
+        let LOSE = 0
 
         let summonerAPI
         let leagueAPI
@@ -80,13 +84,15 @@
 
         검색버튼.addEventListener("click", async function() { // 검색버튼 클릭하면 (이벤트 발생)
             검색할유저 = 인풋태그.value // input 태그에 들어있는 value를 가져오기
-           
+            WIN = 0
+            LOSE = 0
+        
            // summonerAPI 를 호출하는 부분
            await 소환사API()
-           // LEAGUEAPI를 호출하는 부분
-           await 리그API()
             // matchAPI를 호출하는 부분
            await 게임20개()
+           // LEAGUEAPI를 호출하는 부분
+           await 리그API()
         })
 
         async function 소환사API() {
@@ -111,7 +117,7 @@
                 프사.setAttribute("src", `https://opgg-static.akamaized.net/meta/images/profile_icons/profileIcon${response.data.profileIconId}.jpg?image=q_auto,f_webp,w_auto&v=1684436046850`)
  
         }
-        
+
         async function 리그API() {
           
             leagueAPI = `https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${소환사id}?api_key=${api키}`
@@ -120,9 +126,9 @@
             console.log(response)
             
             티어.textContent = response.data[0].tier + " " + response.data[0].rank
-            승률.textContent = ((response.data[0].wins / (response.data[0].wins + response.data[0].losses))*100).toFixed(2)
-            승.textContent = response.data[0].wins
-            패.textContent = response.data[0].losses
+            승률.textContent = ((WIN / (WIN + LOSE))*100).toFixed(2)
+            승.textContent = WIN
+            패.textContent = LOSE
             티어이미지.setAttribute("src", `https://opgg-static.akamaized.net/images/medals_new/${response.data[0].tier}.png?image=q_auto,f_webp,w_144&v=1684436046850`)
         }
 
@@ -189,11 +195,14 @@
                 자식 = document.createElement("div")
                 자식.classList.add("game")
 
+
                 if (게임.data.info.participants[내번호].win == true ) {
                     자식.innerHTML = `<div class="win_"><span>승</span></div>`
+                    WIN = WIN + 1
                 }
                 else if (게임.data.info.participants[내번호].win == false ) {
                     자식.innerHTML = `<div class="lose_"><span>패</span></div>`
+                    LOSE = LOSE + 1
                 }
                 else {
                     자식.innerHTML = `<div class="win-lose"><span>다시하기</span></div>`
@@ -289,6 +298,8 @@
                 게임20개넣을곳.innerHTML = 게임20개넣을곳.innerHTML + "<br>"
         
             }
+
+            
 
            
             /*
