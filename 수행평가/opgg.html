@@ -46,8 +46,8 @@
                 <div><p>룬</p></div>
             </div>
             <div style="width: 200px;"><p>K / D / A / CS</p></div>
-            <div style="width: 309px;"><p>아이템</p></div>
-            <div style="width: 898px; border:none;"><p>같이 플레이한 유저</p></div>
+            <div style="width: 310px;"><p>아이템</p></div>
+            <div style="width: 1003px; border:none;"><p>같이 플레이한 유저</p></div>
         </div>
 
         <!-- 20개 게임 -->
@@ -264,14 +264,14 @@
                 유저1 = document.createElement("div")
                 유저1.classList.add("USER1")
                 for (let i = 0 ; i <= 4 ; i = i + 1) {
-                    유저1.innerHTML = 유저1.innerHTML + `<div class="user1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-right:15px;" alt="챔피언"><span>${게임.data.info.participants[i].summonerName}  </span></div>`
+                    유저1.innerHTML = 유저1.innerHTML + `<div class="user1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-left:15px;" alt="챔피언"><div style="width:155px; padding-left:5px;"><span>${게임.data.info.participants[i].summonerName}</span><div></div>`
                 }
                 
                 let 유저2
                 유저2 = document.createElement("div")
                 유저2.classList.add("USER2")
                 for (let i = 5 ; i <= 9 ; i = i + 1) {
-                    유저2.innerHTML = 유저2.innerHTML + `<div class="user1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-right:15px;" alt="챔피언"><span>${게임.data.info.participants[i].summonerName}  </span></div>`
+                    유저2.innerHTML = 유저2.innerHTML + `<div class="user1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-left:15px;" alt="챔피언"><div style="width:155px; padding-left:5px;"><span>${게임.data.info.participants[i].summonerName}</span><div></div>`
                 }
 
                 자식2.appendChild(유저1)
