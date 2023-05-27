@@ -20,7 +20,7 @@
         
         <div class="header">
             <div class="position">
-                <p>최근 포지션</p>
+                <p style="margin-bottom: 10px;">최근 포지션</p>
                 <div>
                     <div>
                         <img src="https://s-lol-web.op.gg/images/icon/icon-position-top.svg?v=1684919904860" width="50px" alt="탑">
@@ -122,7 +122,10 @@
         const 랭패 = document.querySelector(".Rlose")
         const 랭승률 = document.querySelector(".Rpercent")
         const 티어이미지 = document.querySelector(".tier img")
+        const 최근챔 = document.querySelector(".played-champ")
 
+        let 챔프박스 = document.createElement("div")
+        챔프박스.classList.add("champlist")
         let 탑수 = document.querySelector(".top-count")
         let 미드수 = document.querySelector(".mid-count")
         let 정글수 = document.querySelector(".jungle-count")
@@ -155,6 +158,23 @@
             원딜 = 0
             서폿 = 0
             그외 = 0
+
+            // 초기화
+            최근챔.innerHTML = "<p>최근 플레이한 챔피언</p>"
+            탑수.textContent = "_"
+            미드수.textContent = "_"
+            정글수.textContent = "_"
+            원딜수.textContent = "_"
+            서폿수.textContent = "_"
+            그외수.textContent = "_"
+            승률.textContent = "_"
+            승.textContent = "_"
+            패.textContent = "_"
+            티어.textContent = ""
+            티어이미지.setAttribute("src", `https://img.icons8.com/?size=512&id=11324&format=png`)
+            랭승률.textContent = "_"
+            랭승.textContent = "_"
+            랭패.textContent = "_"
         
            // summonerAPI 를 호출하는 부분
            await 소환사API()
@@ -205,6 +225,11 @@
             서폿수.textContent = 서폿
             그외수.textContent = 그외
 
+            
+            최근챔.appendChild(챔프박스)
+
+            
+
             티어.textContent = "Unranked"
             티어이미지.setAttribute("src", `https://trackercdn.com/cdn/tracker.gg/rocket-league/ranks/s4-0.png`)
             랭승률.textContent = "0"
@@ -244,9 +269,10 @@
             const 게임20개넣을곳 = document.querySelector(".games")
             게임20개넣을곳.innerHTML = "<span></span>"
 
-            
-            
+            // 최근 플레이한 챔피언
+            챔프박스.innerHTML = "<span></span>"
             for (let k = 0 ; k <= 19 ; k = k + 1) {
+
 
                 let 각게임
                 각게임 = document.createElement("div")
@@ -266,6 +292,7 @@
                         break
                     }
                 }
+
     
                 let 멀티킬 
                 if (게임.data.info.participants[내번호].pentaKills >= 1) {
@@ -421,7 +448,13 @@
                 각게임.appendChild(자식2)
                 게임20개넣을곳.appendChild(각게임)
                 게임20개넣을곳.innerHTML = 게임20개넣을곳.innerHTML + "<br>"
-        
+
+                // 최근 플레이한 챔피언
+                
+                챔프박스.innerHTML = 챔프박스.innerHTML + `<img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[내번호].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="35px" style="border-radius:50px;" alt="챔피언">`
+                if (k == 9) {
+                    챔프박스.innerHTML = 챔프박스.innerHTML + `<br>`
+                }
             }
             
 
