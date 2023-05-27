@@ -108,7 +108,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         // summoner api로 유저 데이터를 가져오는 부분
-        const api키 = "RGAPI-67a10de0-a18b-4b80-8106-c563949e5d86"
+        const api키 = "RGAPI-4acdca1f-044a-451e-b877-bf7f43624c04"
         let 검색할유저
         let 소환사puuid
         let 소환사id
@@ -332,9 +332,17 @@
                     kdaScore = `<span style="color:red;">Perfect</span>`
                 }
 
+                let 모드
+                if (게임.data.info.gameMode == "CLASSIC") {
+                    모드 = "협곡"
+                }
+                else if (게임.data.info.gameMode == "ARAM") {
+                    모드 = "칼바람"
+                }
+
                 자식.innerHTML = 자식.innerHTML +
                 `
-                    <div class="game-type"><span>${게임.data.info.gameMode}</span></div>
+                    <div class="game-type"><span>${모드}</span></div>
                     <div class="champinfo"><div class="champion1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[내번호].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="48px" alt="챔피언"></div> <div class="champ-level"><span style="font-size:15pt;">Lv . ${게임.data.info.participants[내번호].champLevel}</span> <span class="multi-kill">${멀티킬}</span> <span class="rune"> <img src="https://opgg-static.akamaized.net/meta/images/lol/perk/${게임.data.info.participants[내번호].perks.styles[0].selections[0].perk}.png?image=q_auto,f_webp,w_auto&v=1684731456578" width="40px" alt="룬1"> <img src="https://opgg-static.akamaized.net/meta/images/lol/perkStyle/${게임.data.info.participants[내번호].perks.styles[1].style}.png?image=q_auto,f_webp,w_auto&v=1684731456578" width="30px" alt="룬2"></span></div></div>
                     <div class="kda"><div><span class="game-kill">${게임.data.info.participants[내번호].kills}</span> <span> / </span> <span class="game-death">${게임.data.info.participants[내번호].deaths}</span> <span> / </span> <span class="game-assist">${게임.data.info.participants[내번호].assists}</span> <span> / </span> <span class="cs">CS - ${게임.data.info.participants[내번호].totalMinionsKilled}</span> <br> <span>${kdaScore}</span></div></div>
                 `
