@@ -94,7 +94,7 @@
             </div>
             <div style="width: 200px;"><p>K / D / A / CS</p></div>
             <div style="width: 310px;"><p>아이템</p></div>
-            <div style="width: 1003px; border:none;"><p>같이 플레이한 유저</p></div>
+            <div style="width: 403px; border:none;"><p>같이 플레이한 유저</p></div>
         </div>
 
         <!-- 20개 게임 -->
@@ -340,15 +340,15 @@
 
 
                 if (게임.data.info.participants[내번호].win == true ) {
-                    자식.innerHTML = `<div class="win_"><span>승</span></div>`
+                    자식.innerHTML = `<div class="win_"></div>`
                     WIN = WIN + 1
                 }
                 else if (게임.data.info.participants[내번호].win == false && 게임.data.info.participants[내번호].champLevel >= 3) {
-                    자식.innerHTML = `<div class="lose_"><span>패</span></div>`
+                    자식.innerHTML = `<div class="lose_"></div>`
                     LOSE = LOSE + 1
                 }
                 else if (게임.data.info.participants[내번호].champLevel < 3 ) {
-                    자식.innerHTML = `<div class="win-lose"><span>X</span></div>`
+                    자식.innerHTML = `<div class="win-lose"></div>`
                 }
                 
                 // 게임 정보
@@ -374,7 +374,7 @@
                 `
                     <div class="game-type">${모드}</div>
                     <div class="champinfo"><div class="champion1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[내번호].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="48px" alt="챔피언"></div> <div class="champ-level"><span style="font-size:15pt;">Lv . ${게임.data.info.participants[내번호].champLevel}</span> <span class="multi-kill">${멀티킬}</span> <span class="rune"> <img src="https://opgg-static.akamaized.net/meta/images/lol/perk/${게임.data.info.participants[내번호].perks.styles[0].selections[0].perk}.png?image=q_auto,f_webp,w_auto&v=1684731456578" width="40px" alt="룬1"> <img src="https://opgg-static.akamaized.net/meta/images/lol/perkStyle/${게임.data.info.participants[내번호].perks.styles[1].style}.png?image=q_auto,f_webp,w_auto&v=1684731456578" width="30px" alt="룬2"></span></div></div>
-                    <div class="kda"><div><span class="game-kill">${게임.data.info.participants[내번호].kills}</span> <span> / </span> <span class="game-death" style="color:red;">${게임.data.info.participants[내번호].deaths}</span> <span> / </span> <span class="game-assist">${게임.data.info.participants[내번호].assists}</span> <span> / </span> <span class="cs">CS - ${게임.data.info.participants[내번호].totalMinionsKilled}</span> <br> <span>${kdaScore}</span></div></div>
+                    <div class="kda"><div><span class="game-kill">${게임.data.info.participants[내번호].kills}</span> <span> / </span> <span class="game-death" style="color:red;">${게임.data.info.participants[내번호].deaths}</span> <span> / </span> <span class="game-assist">${게임.data.info.participants[내번호].assists}</span> <br> <span class="cs">CS - ${게임.data.info.participants[내번호].totalMinionsKilled}</span> <br> <span>${kdaScore}</span></div></div>
                 `
                 let 아이템칸 
                 아이템칸 = document.createElement("div")
@@ -435,14 +435,25 @@
                 유저1 = document.createElement("div")
                 유저1.classList.add("USER1")
                 for (let i = 0 ; i <= 4 ; i = i + 1) {
-                    유저1.innerHTML = 유저1.innerHTML + `<div class="user1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-left:15px;" alt="챔피언"><div style="width:155px; padding-left:5px;"><span>${게임.data.info.participants[i].summonerName}</span><div></div>`
+                    if (i == 내번호) {
+                        유저1.innerHTML = 유저1.innerHTML + `<div class="user1" style="background-color:rgb(177, 191, 254);"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-left:15px;" alt="챔피언"><div style="width:155px; padding-left:5px;"><span>${게임.data.info.participants[i].summonerName}</span><div></div>`
+                    }
+                    else {
+                        유저1.innerHTML = 유저1.innerHTML + `<div class="user1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-left:15px;" alt="챔피언"><div style="width:155px; padding-left:5px;"><span>${게임.data.info.participants[i].summonerName}</span><div></div>`
+                    }
                 }
+                
                 
                 let 유저2
                 유저2 = document.createElement("div")
                 유저2.classList.add("USER2")
                 for (let i = 5 ; i <= 9 ; i = i + 1) {
-                    유저2.innerHTML = 유저2.innerHTML + `<div class="user1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-left:15px;" alt="챔피언"><div style="width:155px; padding-left:5px;"><span>${게임.data.info.participants[i].summonerName}</span><div></div>`
+                    if (i == 내번호) {
+                        유저2.innerHTML = 유저2.innerHTML + `<div class="user1" style="background-color:rgb(255, 176, 176);"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-left:15px;" alt="챔피언"><div style="width:155px; padding-left:5px;"><span>${게임.data.info.participants[i].summonerName}</span><div></div>`
+                    }
+                    else {
+                        유저2.innerHTML = 유저2.innerHTML + `<div class="user1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-left:15px;" alt="챔피언"><div style="width:155px; padding-left:5px;"><span>${게임.data.info.participants[i].summonerName}</span><div></div>`
+                    } 
                 }
 
                 자식2.appendChild(유저1)
