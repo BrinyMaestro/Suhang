@@ -19,41 +19,6 @@
     <div id="container">
         
         <div class="header">
-            <div class="position">
-                <p style="margin-bottom: 10px;">최근 포지션</p>
-                <div>
-                    <div>
-                        <img src="https://s-lol-web.op.gg/images/icon/icon-position-top.svg?v=1684919904860" width="50px" alt="탑">
-                        <br>
-                        <span class="top-count">_</span>
-                    </div>
-                    <div>
-                        <img src="https://s-lol-web.op.gg/images/icon/icon-position-jungle.svg?v=1684919904860" width="50px" alt="정글">
-                        <br>
-                        <span class="jungle-count">_</span>
-                    </div>
-                    <div>
-                        <img src="https://s-lol-web.op.gg/images/icon/icon-position-mid.svg?v=1684919904860" width="50px" alt="미드">
-                        <br>
-                        <span class="mid-count">_</span>
-                    </div>
-                    <div>
-                        <img src="https://s-lol-web.op.gg/images/icon/icon-position-adc.svg?v=1684919904860" width="50px" alt="원딜">
-                        <br>
-                        <span class="bot-count">_</span>
-                    </div>
-                    <div>
-                        <img src="https://s-lol-web.op.gg/images/icon/icon-position-support.svg?v=1684919904860" width="50px" alt="서폿">
-                        <br>
-                        <span class="sup-count">_</span>
-                    </div>
-                    <div>
-                        <img src="https://s-lol-web.op.gg/assets/images/roles/01-icon-01-lol-icon-position-all.svg?v=1684919904860" width="50px" alt="NONE">
-                        <br>
-                        <span class="else-count">_</span>
-                    </div>
-                </div>
-            </div>
 
             <div class="profile1">
                 <div class="profile2">
@@ -62,28 +27,83 @@
                         <h2></h2>
                         <h2>Level <span class="level"> </span></h2>
                     </div>
-                    <div class="tier">
-                        <h2></h2>
-                        <img src="" alt="">  
-                    </div>
-                    <div class="per">
-                        <div><p>승률 <span class="Rpercent">_</span>% (<span class="Rwin">_</span>승 <span class="Rlose">_</span>패)</p></div>
-                        <div><p>K: <span class="K">_</span> D: <span class="D">_</span> A: <span class="A">_</span></p></div>
+                    <div class="rank-box">
+                        <div class="tier">
+                            <h2></h2>
+                            <img src="" alt="">  
+                        </div>
+                        <div class="per">
+                            <div><p>승률 <span class="Rpercent">_</span>% (<span class="Rwin">_</span>승 <span class="Rlose">_</span>패)</p></div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="played-champ">
-                <p>최근 플레이한 챔피언</p>
-                
+            <div class="per20">
+                <div style="font-size: 10pt; height:20px; background-color:rgb(115, 115, 115)">
+                    최근 20게임
+                </div>
+                <div style="border-bottom: 3px solid rgb(54, 54, 54); padding-top:20px; height:150px;"> 
+                    <span class="percent">_</span> % 
+                    <br> 
+                    [ <span class="win"> _ </span>승 <span class="lose"> _ </span>패 ]
+                </div>
+
+                <div style="line-height: 40px; padding-top:10px; height:150px;">
+                    <span class="K-D-A">K / D / A</span>
+                    <br>
+                    <span class="K">_</span> / <span class="D">_</span> / <span class="A">_</span>
+                    <br>
+                    KDA : <span class="KDA">_</span>
+                </div>
+            </div>
+
+            <div>
+                <div class="played-champ">
+                    <p>최근 플레이한 챔피언</p>
+                    
+                </div>
+
+                <div class="position">
+                    <p style="margin-bottom: 10px;">최근 포지션</p>
+                    <div>
+                        <div>
+                            <img src="https://s-lol-web.op.gg/images/icon/icon-position-top.svg?v=1684919904860" width="50px" alt="탑">
+                            <br>
+                            <span class="top-count">_</span>
+                        </div>
+                        <div>
+                            <img src="https://s-lol-web.op.gg/images/icon/icon-position-jungle.svg?v=1684919904860" width="50px" alt="정글">
+                            <br>
+                            <span class="jungle-count">_</span>
+                        </div>
+                        <div>
+                            <img src="https://s-lol-web.op.gg/images/icon/icon-position-mid.svg?v=1684919904860" width="50px" alt="미드">
+                            <br>
+                            <span class="mid-count">_</span>
+                        </div>
+                        <div>
+                            <img src="https://s-lol-web.op.gg/images/icon/icon-position-adc.svg?v=1684919904860" width="50px" alt="원딜">
+                            <br>
+                            <span class="bot-count">_</span>
+                        </div>
+                        <div>
+                            <img src="https://s-lol-web.op.gg/images/icon/icon-position-support.svg?v=1684919904860" width="50px" alt="서폿">
+                            <br>
+                            <span class="sup-count">_</span>
+                        </div>
+                        <div>
+                            <img src="https://s-lol-web.op.gg/assets/images/roles/01-icon-01-lol-icon-position-all.svg?v=1684919904860" width="50px" alt="NONE">
+                            <br>
+                            <span class="else-count">_</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <br>
-        <div class="per20">
-            <p>최근게임 승률 <span class="percent">_</span>% --- [ <span class="win"> _ </span>승 <span class="lose"> _ </span>패 ]</p>
-        </div>
-
+        
         <div class="advbar">
             <div style="width: 50px;"><p>승 / 패</p></div>
             <div style="width: 70px;"><p>게임모드</p></div>
@@ -108,7 +128,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         // summoner api로 유저 데이터를 가져오는 부분
-        const api키 = "RGAPI-4229a751-7252-411c-88d3-7fb5f63e3f5e"
+        const api키 = "RGAPI-b0bf6ed8-7bb5-4775-9999-fa95bcb856c7"
         let 검색할유저
         let 소환사puuid
         let 소환사id
@@ -123,6 +143,10 @@
         const 랭승률 = document.querySelector(".Rpercent")
         const 티어이미지 = document.querySelector(".tier img")
         const 최근챔 = document.querySelector(".played-champ")
+        const K20 = document.querySelector(".K")
+        const D20 = document.querySelector(".D")
+        const A20 = document.querySelector(".A")
+        const KDA20 = document.querySelector(".KDA")
 
         let 챔프박스 = document.createElement("div")
         챔프박스.classList.add("champlist")
@@ -132,8 +156,11 @@
         let 원딜수 = document.querySelector(".bot-count")
         let 서폿수 = document.querySelector(".sup-count")
         let 그외수 = document.querySelector(".else-count")
-        
 
+        let K = 0
+        let D = 0
+        let A = 0
+        
         let WIN = 0
         let LOSE = 0
         let 탑 = 0
@@ -158,6 +185,10 @@
             원딜 = 0
             서폿 = 0
             그외 = 0
+            K = 0
+            D = 0
+            A = 0
+            KDA = 0
 
             // 초기화
             최근챔.innerHTML = "<p>최근 플레이한 챔피언</p>"
@@ -214,7 +245,7 @@
             console.log("리그API 호출")
             console.log(response)
             
-            승률.textContent = ((WIN / (WIN + LOSE))*100).toFixed(2)
+            승률.textContent = ((WIN / (WIN + LOSE))*100).toFixed(1)
             승.textContent = WIN
             패.textContent = LOSE
 
@@ -224,6 +255,11 @@
             원딜수.textContent = 원딜
             서폿수.textContent = 서폿
             그외수.textContent = 그외
+
+            K20.textContent = K
+            D20.textContent = D
+            A20.textContent = A
+            KDA20.textContent =  ((K + A) / D).toFixed(1)
 
             
             최근챔.appendChild(챔프박스)
@@ -267,10 +303,10 @@
             
             // 20개 게임의 데이터를 페이지에 집어넣기
             const 게임20개넣을곳 = document.querySelector(".games")
-            게임20개넣을곳.innerHTML = "<span></span>"
+            게임20개넣을곳.textContent = ""
 
             // 최근 플레이한 챔피언
-            챔프박스.innerHTML = "<span></span>"
+            챔프박스.textContent = ""
             for (let k = 0 ; k <= 19 ; k = k + 1) {
 
 
@@ -436,7 +472,7 @@
                 유저1.classList.add("USER1")
                 for (let i = 0 ; i <= 4 ; i = i + 1) {
                     if (i == 내번호) {
-                        유저1.innerHTML = 유저1.innerHTML + `<div class="user1" style="background-color:rgb(177, 191, 254);"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-left:15px;" alt="챔피언"><div style="width:155px; padding-left:5px;"><span>${게임.data.info.participants[i].summonerName}</span><div></div>`
+                        유저1.innerHTML = 유저1.innerHTML + `<div class="user1" style="background-color:rgb(89, 115, 234);"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-left:15px;" alt="챔피언"><div style="width:155px; padding-left:5px;"><span>${게임.data.info.participants[i].summonerName}</span><div></div>`
                     }
                     else {
                         유저1.innerHTML = 유저1.innerHTML + `<div class="user1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-left:15px;" alt="챔피언"><div style="width:155px; padding-left:5px;"><span>${게임.data.info.participants[i].summonerName}</span><div></div>`
@@ -449,7 +485,7 @@
                 유저2.classList.add("USER2")
                 for (let i = 5 ; i <= 9 ; i = i + 1) {
                     if (i == 내번호) {
-                        유저2.innerHTML = 유저2.innerHTML + `<div class="user1" style="background-color:rgb(255, 176, 176);"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-left:15px;" alt="챔피언"><div style="width:155px; padding-left:5px;"><span>${게임.data.info.participants[i].summonerName}</span><div></div>`
+                        유저2.innerHTML = 유저2.innerHTML + `<div class="user1" style="background-color:rgb(215, 85, 85);"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-left:15px;" alt="챔피언"><div style="width:155px; padding-left:5px;"><span>${게임.data.info.participants[i].summonerName}</span><div></div>`
                     }
                     else {
                         유저2.innerHTML = 유저2.innerHTML + `<div class="user1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[i].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="30px" style="border-radius:50px; margin-left:15px;" alt="챔피언"><div style="width:155px; padding-left:5px;"><span>${게임.data.info.participants[i].summonerName}</span><div></div>`
@@ -469,6 +505,11 @@
                 if (k == 9) {
                     챔프박스.innerHTML = 챔프박스.innerHTML + `<br>`
                 }
+
+                // KDA 계산
+                K = K + 게임.data.info.participants[내번호].kills
+                D = D + 게임.data.info.participants[내번호].deaths
+                A = A + 게임.data.info.participants[내번호].assists
             }
             
 
