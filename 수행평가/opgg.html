@@ -206,6 +206,10 @@
             랭승률.textContent = "_"
             랭승.textContent = "_"
             랭패.textContent = "_"
+            K20.textContent = "_"
+            D20.textContent = "_"
+            A20.textContent = "_"
+            KDA20.textContent =  "_"
         
            // summonerAPI 를 호출하는 부분
            await 소환사API()
@@ -242,6 +246,7 @@
           
             leagueAPI = `https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${소환사id}?api_key=${api키}`
             let response = await axios.get(leagueAPI)
+            
             console.log("리그API 호출")
             console.log(response)
             
