@@ -117,13 +117,13 @@ body {background-color: #BA9D7B;}
     width: 50px; height: 100px; display: flex; justify-content: space-around; font-size: 20pt;
 }
 .win_ {
-    background-color: rgb(144, 165, 255);
+    background-color: rgb(144, 165, 255); color:rgb(100, 123, 226) ;
 }
 .lose_ {
-    background-color: rgb(255, 139, 139);
+    background-color: rgb(255, 139, 139);color:rgb(226, 102, 102) ;
 }
 .win-lose {
-    background-color: #D9D9D9;
+    background-color: #D9D9D9;color: #adabab;
 }
 .game-type {
     width: 70px; display: flex; justify-content: space-around; background-color: rgb(85, 85, 85);
