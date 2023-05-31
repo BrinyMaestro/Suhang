@@ -299,12 +299,11 @@
             let 매치20개 = await axios.get(matchAPI)
             console.log("매치20개")
             console.log(매치20개)
-            // 매치 요청 URL
 
         
             // 2.매치 id로 매치 검색 - API 호출
             gameAPI = []
-            for(let i=0; i <= 19 ; i = i + 1) {
+            for(let i=0; i < 매치20개.data.length ; i = i + 1) {
                 gameAPI.push(`https://asia.api.riotgames.com/lol/match/v5/matches/${매치20개.data[i]}?api_key=${api키}`)
             }
             
@@ -314,7 +313,7 @@
 
             // 최근 플레이한 챔피언
             챔프박스.textContent = ""
-            for (let k = 0 ; k <= 19 ; k = k + 1) {
+            for (let k = 0 ; k < 매치20개.data.length ; k = k + 1) {
 
 
                 let 각게임
@@ -337,6 +336,7 @@
                 }
 
     
+                // 멀티킬
                 let 멀티킬 
                 if (게임.data.info.participants[내번호].pentaKills >= 1) {
                     멀티킬 = "펜타킬"
@@ -395,7 +395,9 @@
                     moo = moo + 1
                 }
                 
-                // 게임 정보
+                // <게임 정보>
+
+                // 각 게임의 kda
                 let kdaScore
                 kdaScore = (( 게임.data.info.participants[내번호].kills + 게임.data.info.participants[내번호].assists ) / 게임.data.info.participants[내번호].deaths).toFixed(1)
                 kdaScore = "KDA : " + kdaScore
@@ -406,6 +408,7 @@
                     kdaScore = "KDA : 0"
                 }
 
+                // 게임모드
                 let 모드
                 if (게임.data.info.gameMode == "CLASSIC") {
                     모드 = `<span style="color:rgb(39, 206, 83);">협곡</span>`
@@ -420,6 +423,8 @@
                     <div class="champinfo"><div class="champion1"><img src="https://opgg-static.akamaized.net/meta/images/lol/champion/${게임.data.info.participants[내번호].championName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_96&v=1684731456578" width="48px" alt="챔피언"></div> <div class="champ-level"><span style="font-size:15pt;">Lv . ${게임.data.info.participants[내번호].champLevel}</span> <span class="multi-kill">${멀티킬}</span> <span class="rune"> <img src="https://opgg-static.akamaized.net/meta/images/lol/perk/${게임.data.info.participants[내번호].perks.styles[0].selections[0].perk}.png?image=q_auto,f_webp,w_auto&v=1684731456578" width="40px" alt="룬1"> <img src="https://opgg-static.akamaized.net/meta/images/lol/perkStyle/${게임.data.info.participants[내번호].perks.styles[1].style}.png?image=q_auto,f_webp,w_auto&v=1684731456578" width="30px" alt="룬2"></span></div></div>
                     <div class="kda"><div><span class="game-kill">${게임.data.info.participants[내번호].kills}</span> <span> / </span> <span class="game-death" style="color:red;">${게임.data.info.participants[내번호].deaths}</span> <span> / </span> <span class="game-assist">${게임.data.info.participants[내번호].assists}</span> <br> <span class="cs">CS - ${게임.data.info.participants[내번호].totalMinionsKilled}</span> <br> <span>${kdaScore}</span></div></div>
                 `
+
+                // 아이템
                 let 아이템칸 
                 아이템칸 = document.createElement("div")
                 아이템칸.classList.add("ITEM")
