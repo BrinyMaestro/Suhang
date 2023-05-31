@@ -46,7 +46,7 @@
                 <div style="border-bottom: 3px solid rgb(54, 54, 54); padding-top:20px; height:150px;"> 
                     <span class="percent">_</span> % 
                     <br> 
-                    [ <span class="win"> _ </span>승 <span class="lose"> _ </span>패 ]
+                    [ <span class="win"> _ </span>승 <span class="lose"> _ </span>패 <span class="win-lose_"> _ </span>무 ]
                 </div>
 
                 <div style="line-height: 40px; padding-top:10px; height:150px;">
@@ -128,7 +128,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         // summoner api로 유저 데이터를 가져오는 부분
-        const api키 = "RGAPI-d3ad77fc-b3c6-4fee-afcb-81fe75013783"
+        const api키 = "RGAPI-4b6aabd5-71e0-4676-8e1a-0675f76a95d4"
         let 검색할유저
         let 소환사puuid
         let 소환사id
@@ -138,6 +138,7 @@
         const 승률 = document.querySelector(".percent")
         const 승 = document.querySelector(".win")
         const 패 = document.querySelector(".lose")
+        const 무 = document.querySelector(".win-lose_")
         const 랭승 = document.querySelector(".Rwin")
         const 랭패 = document.querySelector(".Rlose")
         const 랭승률 = document.querySelector(".Rpercent")
@@ -163,6 +164,7 @@
         
         let WIN = 0
         let LOSE = 0
+        let moo = 0
         let 탑 = 0
         let 정글 = 0
         let 미드 = 0
@@ -179,6 +181,7 @@
             검색할유저 = 인풋태그.value // input 태그에 들어있는 value를 가져오기
             WIN = 0
             LOSE = 0
+            moo = 0
             탑 = 0
             정글 = 0
             미드 = 0
@@ -201,6 +204,7 @@
             승률.textContent = "_"
             승.textContent = "_"
             패.textContent = "_"
+            무.textContent = "_"
             티어.textContent = ""
             티어이미지.setAttribute("src", `https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif`)
             랭승률.textContent = "_"
@@ -253,6 +257,7 @@
             승률.textContent = ((WIN / (WIN + LOSE))*100).toFixed(1)
             승.textContent = WIN
             패.textContent = LOSE
+            무.textContent = moo
 
             탑수.textContent = 탑
             미드수.textContent = 미드
@@ -277,16 +282,13 @@
             랭승.textContent = "0"
             랭패.textContent = "0"
             
-            for (let i = 0 ; i <= 4 ; i = i + 1) {
+            for (let i = 0 ; i < response.data.length ; i = i + 1) {
                 if (response.data[i].queueType == "RANKED_SOLO_5x5") {
                     티어.textContent = response.data[i].tier + " " + response.data[i].rank
                     티어이미지.setAttribute("src", `https://opgg-static.akamaized.net/images/medals_new/${response.data[i].tier}.png?image=q_auto,f_webp,w_144&v=1684436046850`)
                     랭승률.textContent = ((response.data[i].wins / (response.data[i].wins + response.data[i].losses))*100).toFixed(2)
                     랭승.textContent = response.data[i].wins
                     랭패.textContent = response.data[i].losses
-                } 
-                else {
-                    continue
                 }               
             }
         }
@@ -390,6 +392,7 @@
                 }
                 else {
                     자식.innerHTML = `<div class="win-lose">X</div>`
+                    moo = moo + 1
                 }
                 
                 // 게임 정보
