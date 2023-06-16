@@ -70,7 +70,7 @@
             font-weight: bold;
         }
         .menu > div {
-            width: 100px;
+            
             text-align: center;
             height: 50px;
             align-items: center;
@@ -85,13 +85,13 @@
             opacity: 1;
         }
         .m-text {
-            width: 100px;
+            
             height: 50px;
             display: grid;
             align-items: center;
         }
         .bar {
-            width: 100px;
+            width: 100%;
             height: 5px;
             background-color: blueviolet;
             transition: 0.2s;
@@ -125,6 +125,9 @@
             padding: 8.5px;
             border-bottom: 1px solid rgb(214, 214, 214);
             cursor: pointer;
+            display: grid;
+            align-items: center;
+            font-weight: bold;
         }
         .container > div:nth-child(7) > div:hover{
             background-color: rgb(214, 214, 214);
@@ -138,7 +141,7 @@
             height: 150px;
         }
         .popup {
-            height: 150px;
+            height: 100%;
             background-color: rgba(0, 0, 0, 0.505);
             opacity: 0;
             text-align: center;
@@ -162,8 +165,8 @@
             text-align: center;
         }
         .top1-popup {
-            width: 500px;
-            height: 500px;
+            width: 100%;
+            height: 100%;
             background-color: rgba(0, 0, 0, 0.505);
             text-align: center;
             display: grid;
@@ -173,13 +176,14 @@
         }
         .TOP {
             overflow: hidden;
+            cursor: pointer;
         }
         .TOP:hover .top1-popup{
             transform: translate(0, -500px);
             opacity: 1;
         }
         .footer {
-            background-color: rgb(100, 94, 91);
+            background-color: rgb(106, 106, 106);
             color: white;
             margin-top: 50px;
             padding: 10px;
