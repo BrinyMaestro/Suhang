@@ -16,11 +16,16 @@
             display: flex;
             justify-content: space-between;
             padding: 5px;
+            font-size: 10pt;
         }
         .top > div {
             display: flex;
             justify-content: space-between;
             color: rgb(153, 153, 153);
+            cursor: pointer;
+        }
+        .top > div > div:hover {
+            color: rgb(96, 96, 96);
         }
         .logo {
             display: flex;
@@ -31,6 +36,7 @@
         }
         .block-logo {
             height: 50px;
+            cursor: pointer;
         }
         #input {
             border: 3px solid blueviolet;
@@ -46,6 +52,146 @@
             border: none;
             background-color: blueviolet;
             color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgb(171, 90, 246);
+        }
+        button:active {
+            background-color: rgb(99, 15, 177);
+        }
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 600px;
+            height: 50px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .menu > div {
+            width: 100px;
+            text-align: center;
+            height: 50px;
+            align-items: center;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .menu > div:active .m-text{
+            background-color:rgb(225, 225, 225) ;
+        }
+        .menu > div:hover .bar{
+            transform: translate(0, -5px);
+            opacity: 1;
+        }
+        .m-text {
+            width: 100px;
+            height: 50px;
+            display: grid;
+            align-items: center;
+        }
+        .bar {
+            width: 100px;
+            height: 5px;
+            background-color: blueviolet;
+            transition: 0.2s;
+            opacity: 0;
+        }
+        .box {
+            display: grid;
+            grid-template-columns: repeat(2, 500px);
+            grid-template-rows: 500px;
+            gap: 10px;
+            margin-top: 50px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 150px);
+            grid-template-rows: repeat(3, 150px);
+            gap: 25px;
+        }
+        .container > div {
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .container > div:hover .popup{
+            transform: translate(0, -150px);
+            opacity: 1;
+        }
+        .container > div:nth-child(7) {
+            grid-column: 1/4;
+        }
+        .container > div:nth-child(7) > div{
+            padding: 8.5px;
+            border-bottom: 1px solid rgb(214, 214, 214);
+            cursor: pointer;
+        }
+        .container > div:nth-child(7) > div:hover{
+            background-color: rgb(214, 214, 214);
+        }
+        .container > div:nth-child(7) > div:active{
+            background-color: rgb(181, 181, 181);
+        }
+        .img {
+            background-size: cover;
+            width: 150px;
+            height: 150px;
+        }
+        .popup {
+            height: 150px;
+            background-color: rgba(0, 0, 0, 0.505);
+            opacity: 0;
+            text-align: center;
+            transition: 0.1s;
+            display: grid;
+            align-items: center;
+        }
+        .top1 {
+            width: 500px;
+            height: 500px;
+            background-size: cover;
+            background-image: url('https://webdesignledger.com/wp-content/uploads/2015/05/1-creative-music-album-covers.jpg');
+            cursor: pointer;
+        }
+        .top1 > div {
+            background-color: white;
+            padding: 10px;
+            margin-left: 20px;
+            width: 70px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .top1-popup {
+            width: 500px;
+            height: 500px;
+            background-color: rgba(0, 0, 0, 0.505);
+            text-align: center;
+            display: grid;
+            align-items: center;
+            transition: 0.1s;
+            opacity: 0;
+        }
+        .TOP {
+            overflow: hidden;
+        }
+        .TOP:hover .top1-popup{
+            transform: translate(0, -500px);
+            opacity: 1;
+        }
+        .footer {
+            background-color: rgb(100, 94, 91);
+            color: white;
+            margin-top: 50px;
+            padding: 10px;
+        }
+        .footer > div {
+            width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .footer > div > p {
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -53,7 +199,7 @@
     <div class="main">
         <div class="header">
             <div class="top">
-                <div style="width: 110px;">
+                <div style="width: 90px;">
                     <div>공지사항</div>
                     <div>안내</div>
                 </div>
@@ -61,7 +207,7 @@
                     <div>로그인</div>
                     <div>회원가입</div>
                     <div>고객센터</div>
-                    <div>language</div>
+                    <div>language ▼</div>
                 </div>
             </div>
             <div class="logo">
@@ -70,12 +216,30 @@
                 <button>검색</button>
             </div>
             <div class="menu">
-                <div>차트</div>
-                <div>라이브</div>
-                <div>최신곡</div>
-                <div>스페셜</div>
-                <div>TEEN</div>
-                <div>초이스</div>
+                <div>
+                    <div class="m-text">차트</div>
+                    <div class="bar"></div>
+                </div>
+                <div>
+                    <div class="m-text">라이브</div>
+                    <div class="bar"></div>
+                </div>
+                <div>
+                    <div class="m-text">최신곡</div>
+                    <div class="bar"></div>
+                </div>
+                <div>
+                    <div class="m-text">스페셜</div>
+                    <div class="bar"></div>
+                </div>
+                <div>
+                    <div class="m-text">TEEN</div>
+                    <div class="bar"></div>
+                </div>
+                <div>
+                    <div class="m-text">초이스</div>
+                    <div class="bar"></div>
+                </div>
             </div>
         </div>
 
@@ -83,15 +247,98 @@
 
         <div class="box">
             <div class="container">
+                <div>
+                    <div class="img" style="background-image: url('https://static-cse.canva.com/blob/1067807/1600w-fxYFTKLArdY.jpg');"></div>
+                    <div class="popup">
+                        <div>
+                            <h4 style="color: white;">Head In The Clouds</h4>
+                            <p style="color: yellow;">*****</p>
+                        </div>
+                    </div>
+                </div>
 
+                <div>
+                    <div class="img" style="background-image: url('https://marketplace.canva.com/EAEqlr422aw/1/0/1600w/canva-falling-modern-aesthetic-music-album-cover-KsRCFSNg4XA.jpg');"></div>
+                    <div class="popup">
+                        <div>
+                            <h4 style="color: white;">Falling</h4>
+                            <p style="color: yellow;">*****</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="img" style="background-image: url('https://cdn.create.vista.com/downloads/7cac6f71-10bc-4d55-9da8-10a67cb46cce_450.jpeg');"></div>
+                    <div class="popup">
+                        <div>
+                            <h4 style="color: white;">Full Of Dreams</h4>
+                            <p style="color: yellow;">*****</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="img" style="background-image: url('https://i1.sndcdn.com/artworks-yFKVFDYtGGZkRERY-RS8jcg-t500x500.jpg');"></div>
+                    <div class="popup">
+                        <div>
+                            <h4 style="color: white;">Eight</h4>
+                            <p style="color: yellow;">*****</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="img" style="background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/hd/c516f191023435.5e270367679f1.png');"></div>
+                    <div class="popup">
+                        <div>
+                            <h4 style="color: white;">Divide & Collide</h4>
+                            <p style="color: yellow;">*****</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="img" style="background-image: url('https://d1csarkz8obe9u.cloudfront.net/posterpreviews/white-and-blue-rock-music-album-cover-design-template-669d6b733ca7b8e20734de8eea1e67ea_screen.jpg?ts=1561485914');"></div>
+                    <div class="popup">
+                        <div>
+                            <h4 style="color: white;">Ocean</h4>
+                            <p style="color: yellow;">*****</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>실시간 차트</h2>
+
+                    <div>1. never ending story</div> 
+                    
+                    <div>2. You</div> 
+                    
+                    <div>3. Rio Funk</div> 
+                </div>
             </div>
-            <div class="top1">
-
+            <div class="TOP" >
+                <div class="top1">
+                    <div style="position:relative; z-index: 10;">
+                        1 TOP
+                    </div>
+                </div>
+                <div class="top1-popup" style="position:relative; z-index: 9;">
+                    <div>
+                        <p style="color: white; font-size:30pt; font-weight:bold;">Get Lucky</p>
+                        <p style="color: yellow; font-size:30pt; font-weight:bold;">*****</p>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="footer">
-
+    <div class="footer">
+        <div>
+            <p>본 사이트는 상업적 목적이 아닌 개인 포트폴리오로 제작되었습니다.</p>
+            <p>주소 | 서울특별시 종로구 종로58길 28</p>
+            <p>전화 | 02-2237-0465</p>
+            <p>학과 소개 | 교육과정 | 학과 생활 | 진로 안내 | 활동 영상</p>
+            <p>Copyright (c) 종로산업정보학교 AIcomputer Department 노신영 All rights reserved</p>
         </div>
     </div>
 </body>
